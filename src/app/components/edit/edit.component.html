@@ -1,0 +1,40 @@
+<mat-divider></mat-divider>
+<br><br>
+<mat-card class="card">
+  <section class="mat-typography">
+    <h2>Edit</h2>
+  </section>
+  <mat-divider></mat-divider>
+  <form [formGroup]="editForm" class="editForm">
+    <mat-form-field class="field-full-width">
+      <input matInput placeholder="Issue title" formControlName="title" #title>
+    </mat-form-field>
+    <mat-form-field  class="field-full-width">
+        <input matInput placeholder="Responsible" formControlName="responnsible" #responnsible>
+      </mat-form-field>
+      <mat-form-field  class="field-full-width">
+          <input matInput placeholder="Status" formControlName="description" #description>
+        </mat-form-field>
+        <mat-form-field  class="field-full-width">
+            <mat-select formControlName="severity" placeholder="Severity" #severity>
+              <mat-option value="low"> Low</mat-option>
+              <mat-option value="medium">Medium</mat-option>
+              <mat-option value="high">High</mat-option>
+            </mat-select>
+          </mat-form-field>
+          <mat-form-field  class="field-full-width">
+              <mat-select formControlName="status" placeholder="Status" #status>
+                <mat-option value="open">Open</mat-option>
+                <mat-option value="close">Close</mat-option>
+               
+              </mat-select>
+            </mat-form-field>
+          <mat-divider></mat-divider><br>
+          <button  mat-raised-button  type="submit" (click)="updateData(title.value,responnsible.value,description.value,severity.value,status.value)"[disabled]="editForm.pristine || editForm.invalid">Save</button>
+          &nbsp;  
+              <button mat-raised-button color="accent" routerLink="/list">Back</button>   
+             
+       
+  
+  </form>
+</mat-card>
